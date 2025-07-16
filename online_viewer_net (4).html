@@ -1,0 +1,380 @@
+Put your HTML text here<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cuerpo de Bomberos de Granada, Nicaragua</title>
+  <style>
+    :root {
+      --rojo: #d32f2f;
+      --gris-oscuro: #1e1e1e;
+      --gris-claro: #fafafa;
+      --blanco: #ffffff;
+      --dorado: #ffb300;
+      --azul-profundo: #0d47a1;
+      --naranja-alarma: #f57c00;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: var(--gris-claro);
+      color: var(--gris-oscuro);
+      line-height: 1.6;
+    }
+    header {
+      position: relative;
+      background: linear-gradient(to right, var(--rojo), var(--naranja-alarma));
+      color: var(--blanco);
+      padding: 1.5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://media.giphy.com/media/l0HlNQ03J5JxX6lva/giphy.gif') center/cover no-repeat;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 1;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: var(--rojo);
+      padding: 1rem;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    nav a {
+      position: relative;
+      color: var(--blanco);
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--dorado);
+      transition: width 0.3s ease;
+    }
+    nav a:hover {
+      color: var(--dorado);
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      height: 60vh;
+    }
+    .carousel {
+      display: flex;
+      width: 300%;
+      animation: slide 15s infinite;
+    }
+    .carousel img {
+      width: 100vw;
+      height: 60vh;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100vw); }
+      66% { transform: translateX(-200vw); }
+      100% { transform: translateX(0); }
+    }
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--azul-profundo);
+      border-left: 6px solid var(--dorado);
+      padding-left: 1rem;
+    }
+    .card {
+      background: var(--blanco);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    form input, form textarea, form select {
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    form button {
+      background-color: var(--naranja-alarma);
+      color: var(--blanco);
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    form button:hover {
+      background-color: var(--dorado);
+      color: var(--gris-oscuro);
+    }
+    .social-links a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: var(--gris-oscuro);
+    }
+    #topBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--rojo);
+      color: var(--blanco);
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      display: none;
+      z-index: 99;
+    }
+    #topBtn:hover {
+      background-color: var(--dorado);
+      color: var(--gris-oscuro);
+    }
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      z-index: 100;
+    }
+    .whatsapp-btn:hover {
+      background-color: #20b454;
+    }
+    footer {
+      background-color: var(--gris-oscuro);
+      color: var(--gris-claro);
+      text-align: center;
+      padding: 1rem;
+    }
+    @media (max-width: 768px) {
+      .carousel img {
+        height: 40vh;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin: 0.3rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cuerpo de Bomberos de Granada</h1>
+    <p>Comprometidos con tu seguridad</p>
+  </header>
+
+  <nav>
+    <a href="#historia">Historia</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#voluntariado">Voluntariado</a>
+  </nav>
+
+  <div class="hero">
+    <div class="carousel">
+      <img src="img1.jpg" alt="Bomberos en acción" />
+      <img src="img2.jpg" alt="Unidad de rescate" />
+      <img src="img3.jpg" alt="Entrenamiento del equipo" />
+    </div>
+  </div>
+
+  <section id="historia">
+    <h2 class="section-title">Nuestra Historia</h2>
+    <div class="card">
+      <p>
+        El Cuerpo de Bomberos de Granada, Nicaragua, ha sido una institución
+        clave en la protección de vidas y bienes desde su fundación. A lo
+        largo de los años, hemos evolucionado con la tecnología y la capacitación
+        constante de nuestro personal, manteniendo siempre el compromiso con la
+        comunidad granadina.
+      </p>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="card">
+      <ul>
+        <li>Atención y control de incendios urbanos y forestales</li>
+        <li>Rescate en accidentes de tránsito</li>
+        <li>Atención prehospitalaria de emergencia</li>
+        <li>Simulacros y capacitación comunitaria</li>
+        <li>Supervisión de medidas de seguridad contra incendios</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="noticias">
+    <h2 class="section-title">Noticias y Actividades</h2>
+    <div class="card">
+      <p>
+        Mantente informado sobre nuestras últimas intervenciones, campañas de
+        prevención, simulacros y actividades comunitarias que realizamos para
+        fortalecer la cultura de seguridad en Granada.
+      </p>
+    </div>
+  </section>
+
+  <section id="voluntariado">
+    <h2 class="section-title">Únete como Voluntario</h2>
+    <div class="card">
+      <p>
+        ¿Quieres servir a tu comunidad y formar parte de nuestro equipo? Postúlate
+        como voluntario llenando el siguiente formulario:
+      </p>
+      <form action="https://formspree.io/f/voluntarioform" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre completo" required />
+        <input type="email" name="email" placeholder="Correo electrónico" required />
+        <input type="tel" name="telefono" placeholder="Número de teléfono" required />
+        <input type="text" name="direccion" placeholder="Dirección" required />
+        <select name="disponibilidad" required>
+          <option value="">-- Disponibilidad --</option>
+          <option value="tiempo-completo">Tiempo completo</option>
+          <option value="medio-tiempo">Medio tiempo</option>
+          <option value="fines-de-semana">Fines de semana</option>
+        </select>
+        <textarea
+          name="motivacion"
+          rows="4"
+          placeholder="¿Por qué deseas ser voluntario?"
+          required
+        ></textarea>
+        <button type="submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="mapa">
+    <h2 class="section-title">Ubicación</h2>
+    <div class="card">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3930.939059182657!2d-85.9549!3d11.929!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f7410e9a1b7b37b%3A0x1b7b7b7b7b7b7b7b!2sW2JV%2BV85%2C%20C.%2014%20de%20Septiembre%2C%20Granada%2C%20Nicaragua!5e0!3m2!1ses!2sni!4v1710000000000!5m2!1ses!2sni"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+      <a
+        href="https://www.google.com/maps/place/W2JV+V85,+C.+14+de+Septiembre,+Granada,+Nicaragua"
+        target="_blank"
+        style="
+          display: inline-block;
+          margin-top: 1rem;
+          padding: 0.6rem 1.2rem;
+          background-color: #d32f2f;
+          color: white;
+          border-radius: 5px;
+          text-decoration: none;
+          font-weight: bold;
+        "
+        >Abrir en Google Maps</a
+      >
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <div class="card">
+      <form action="https://formspree.io/f/mxyzform" method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Tu correo electrónico" required />
+        <textarea name="mensaje" rows="5" placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+      </form>
+      <div class="social-links">
+        <p>Síguenos en redes sociales:</p>
+        <a href="https://www.facebook.com/bomberosgranada" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/bomberosgranada" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <a
+    href="https://wa.me/50512345678?text=Hola%2C%20necesito%20ayuda%20del%20Cuerpo%20de%20Bomberos%20de%20Granada"
+    class="whatsapp-btn"
+    target="_blank"
+    title="Chatear por WhatsApp"
+    >📱</a
+  >
+
+  <button id="topBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑ Arriba</button>
+
+  <footer>
+    <p>&copy; 2025 Cuerpo de Bomberos de Granada. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function () {
+      if (
+        document.body.scrollTop > 300 ||
+        document.documentElement.scrollTop > 300
+      ) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+  </script>
+</body>
+</html>
